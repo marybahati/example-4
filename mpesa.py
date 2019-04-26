@@ -1,20 +1,49 @@
 class Mpesa:
+    def __init__(self,name,phone_no):
+        self.name=name
+        self.phone_no=phone_no
+        self.balance=0
+        self.deposits=[]
+        self.withdraw=[]
+        self.loan=0
+    def deposit(self,amount):
+        self.balance=self.balance+amount
+        self.deposits.append(amount)
+        print ("Dear {}, you have successfuly deposited Ksh{} into your account {}. Your new M-pesa balance is Ksh{}.".format(self.name,amount,self.phone_no,self.balance))
 
-    def __init__(self,full_name,phone_no,balance,deposit,withdraw):
-    	self.full_name=full_name
-    	self.phone_no=phone_no
-    	self.balance=balance
-    	self.deposit=deposit
-    	self.withdraw=withdraw
-    def deposit_amount(self):
-    	amount=self.balance+self.deposit
-          print ("Dear {}, you have successfuly deposited Ksh{} into your account {}. Your new M-pesa balance is Ksh{}.".format(self.name,deposit,self.phone_number,amount))
+    def withdraw_cash(self,amount):
+        if amount<self.balance:
+            self.balance=self.balance-amount
+            print ("Dear {}, you have withdrawn Ksh{} from your account {}. Your new M-pesa balance is Ksh{}.".format(self.name,amount,self.phone_no,self.balance))
+            self.withdraw.append(amount)
+        else:
+            print('dear customer you do not have sufficient balance.your current balance is {},thank you'.format(amount))
 
-    def withdraw_cash(self):
-    	cash=self.balance-self.withdraw
-          print ("Dear {}, you have withdrawn Ksh{} from your account {}. Your new M-pesa balance is Ksh{}.".format(self.name,withdraw,self.phone_number,cash))
-    	
+
     def check_bal(self):
-          print ("Dear {}, you have a balance of Ksh{}.Thank you for using Mpesa".format(self.name,self.balance))
-    			
-    			
+        self.balance=self.balance
+        print ("Dear {}, you have a balance of Ksh{}.Thank you for using Mpesa".format(self.name,self.balance))
+            
+    def my_deposits(self):
+        for y in self.deposits:
+         print(y)
+
+    def my_withdawals(self):
+        for x in self.withdraw:
+         print(x)
+
+    def get_loan(self,loan):
+        self.loan=loan
+        if self.deposits.append(amount)>5:
+            print("Dear customer you are now able to apply for a loan")
+        elif self.loan>0:
+            print("Dear customer to get another loan,you need to pay the existing loan first.Thank you")   
+
+        else:
+            print("Dear customer you are unable to get a loan")     
+
+    
+        
+    
+        
+                        
